@@ -9,7 +9,7 @@ This is a Twitter clone I'm building while studying Ruby on Rails, Ruby, and web
 2. Make changes to `database.yml` (like your postgres username and password)
 3. Run `yarn install`
 4. Install gems with `bundle install --without production`
-5. Create the databases with `rails db:create`
+5. Create the database with `rails db:setup`
 6. Run the `rails server`
 7. Go to `localhost:3000` in your browser!
 8. Run the test suite with `rspec`

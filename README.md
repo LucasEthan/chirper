@@ -17,8 +17,9 @@ This is a Twitter clone I'm building while studying Ruby on Rails, Ruby, and web
 ### Stuff to do
 
 - [ ] Add more specs!
+- [ ] Add Rails-specific `rubocop` cops
+- [ ] Run project-wide `rubocop` autoformat
 - [ ] Add continuous integration / deployment (tests, `rubocop`, deploy to Heroku)
 - [ ] Switch to `HAML` as an alternative to `erb`?
-- [ ] Add Rails-specific `rubocop` cops
 
 Chirper is a *work in progress* so check back every now and then! :)

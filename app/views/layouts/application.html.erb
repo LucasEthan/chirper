@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <head>
+  <head>    
     <title><%= content_for :page %> | Chirper</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+      </script>
+    <![endif]-->
   </head>
 
   <body>
@@ -24,6 +28,18 @@
     </header>
     <div class="container">
       <%= yield %>
-    </div>
+      <footer class="footer">
+        <small>
+          <strong>Chirper!</strong> A modest <em>Twitter</em> clone written in Ruby on Rails. Copyright &copy; 2020 by Lucas Ethan Calo. All Rights Reserved
+        </small>
+        <nav>
+          <ul>
+            <li><%= link_to "About", '#' %></li>
+            <li><%= link_to "Contact", '#' %></li>
+            <li><a href="https://rubyonrails.org/">Rails Homepage</a></li>
+          </ul>
+        </nav>  
+      </footer>
+    </div>    
   </body>
 </html>

@@ -1,24 +1,25 @@
-# README
+# Chirper
+## A modest but awesome Twitter clone
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Twitter clone I'm building while studying Ruby on Rails, Ruby, and web development in general. Only the first of many *AWESOME* web applications to come!
 
-Things you may want to cover:
+### How to build Chirper
 
-* Ruby version
+1. Clone it
+2. Make changes to `database.yml` (like your postgres username and password)
+3. Run `yarn install`
+4. Install gems with `bundle install --without production`
+5. Create the database with `rails db:setup`
+6. Run the `rails server`
+7. Go to `localhost:3000` in your browser!
+8. Run the test suite with `rspec`
 
-* System dependencies
+### Stuff to do
 
-* Configuration
+- [ ] Add more specs!
+- [ ] Add Rails-specific `rubocop` cops
+- [ ] Run project-wide `rubocop` autoformat
+- [ ] Add continuous integration / deployment (tests, `rubocop`, deploy to Heroku)
+- [ ] Switch to `HAML` as an alternative to `erb`?
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Chirper is a *work in progress* so check back every now and then! :)

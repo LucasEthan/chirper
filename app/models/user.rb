@@ -6,6 +6,8 @@ class User < ApplicationRecord
     length: { maximum: 100 }, uniqueness: { case_sensitive: false }
   validates :name, length: { minimum: 10, maximum: 250 }
 
+  has_secure_password
+  
   private
 
   def downcase_email

@@ -1,0 +1,15 @@
+<% content_for :page, @user.name %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+     <h1>
+      <%= gravatar_for(@user) %>
+      <%= @user.name %>
+     </h1>
+    </section>
+  </aside>
+</div>
+
+<p><strong>Name:</strong> <%= @user.name %></p>
+<p><strong>Email:</strong> <%= @user.email %></p> 
+<p><strong>Created at:</strong> <%= @user.created_at %></p>

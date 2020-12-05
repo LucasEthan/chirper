@@ -26,6 +26,10 @@ class User < ApplicationRecord
     update(remember_digest: User.digest(remember_token))
   end
 
+  def forget
+    update(remember_digest: nil)
+  end
+
   private
 
   def downcase_email

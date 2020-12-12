@@ -23,6 +23,14 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:success] = "Account #{@user.name} successfully updated"
+      redirect_to @user
+    else
+      flash.now[:danger] = "The form contains #{helpers.pluralize(@user.errors.count, 'error')}"
+      render :edit
+    end
   end
 
   private

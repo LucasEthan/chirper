@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
 
-  before_save :downcase_email, :titlecase_name, :strip_whitespaces
+  before_validation :downcase_email, :titlecase_name, :strip_whitespaces
 
   validates :name, :email, presence: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: "is not a valid email address" },

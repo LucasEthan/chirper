@@ -8,7 +8,7 @@ class User < ApplicationRecord
     length: { maximum: 100 }, uniqueness: { case_sensitive: false }
   validates :name, length: { minimum: 10, maximum: 250 }
   validates :password, length: { minimum: 8 },
-    format: { with: /.*[0-9].*/, message: "should contain at least one number" }
+    format: { with: /.*[0-9].*/, message: "should contain at least one number" }, allow_nil: true
 
   has_secure_password
 

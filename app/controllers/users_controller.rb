@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:success] = "Account #{@user.name} successfully created"
-      redirect_to @user
+      redirect_to login_path
     else
       flash.now[:danger] = "The form contains #{helpers.pluralize(@user.errors.count, 'error')}"
       render :new

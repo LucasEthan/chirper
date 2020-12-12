@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(session_params.except(:password, :remember_me))
+    user = User.find_by(email: session_params[:email].downcase)
     if user&.authenticate(session_params[:password])
       log_in(user)
       if session_params[:remember_me] == "1"
@@ -28,6 +28,6 @@ class SessionsController < ApplicationController
   private
 
   def session_params
-    params.require(:session).permit(:name, :email, :password, :remember_me)
+    params.require(:session).permit(:email, :password, :remember_me)
   end
 end

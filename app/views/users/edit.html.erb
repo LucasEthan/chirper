@@ -5,7 +5,7 @@
     <%= render "form", user: @user, submit_text: "Save changes" %>
     <div class="gravatar_edit">
       <%= gravatar_for(@user) %>
-      <%= link_to "Change avatar", "https://gravatar.com/emails", target: "_blank" %>
+      <%= link_to "Change avatar", "https://gravatar.com/emails", target: "_blank", rel: "noopener" %>
     </div>
   </div>
 </div>

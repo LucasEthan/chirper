@@ -1,5 +1,7 @@
 <% content_for :page, "All Accounts" %>
 <h1>All accounts</h1>
+<%= will_paginate %>
 <ul class="users">
   <%= render @users %>
 </ul>
+<%= will_paginate %>

@@ -8,6 +8,8 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.3'
 gem "bcrypt"
 gem "bootstrap-sass", "3.4.1"
 gem "capybara"
+gem "will_paginate"
+gem "bootstrap-will_paginate"
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -38,6 +40,7 @@ group :development, :test do
   gem "pry"
   gem "pry-rails"
   gem "pry-byebug"
+  gem "faker"
 end
 
 group :development do

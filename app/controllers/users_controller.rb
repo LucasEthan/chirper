@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: %i[edit update]
+  before_action :logged_in_user, only: %i[edit update index]
   before_action :correct_user, only: %i[edit update]
 
   def new
@@ -19,6 +19,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+  end
+
+  def index
+    @users = User.paginate(page: params[:page])
   end
 
   def edit
@@ -44,6 +48,7 @@ class UsersController < ApplicationController
 
   def logged_in_user
     unless logged_in?
+      store_location
       flash[:info] = "You must be logged in"
       redirect_to login_path
     end

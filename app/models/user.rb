@@ -5,8 +5,8 @@ class User < ApplicationRecord
 
   validates :name, :email, presence: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: "is not a valid email address" },
-    length: { maximum: 100 }, uniqueness: { case_sensitive: false }
-  validates :name, length: { minimum: 10, maximum: 250 }
+    uniqueness: { case_sensitive: false }
+
   validates :password, length: { minimum: 8 },
     format: { with: /.*[0-9].*/, message: "should contain at least one number" }, allow_nil: true
 

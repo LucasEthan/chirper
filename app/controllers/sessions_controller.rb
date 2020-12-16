@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
         forget(user)
       end
       flash[:success] = "#{user.name} successfully logged in"
-      redirect_to user
+      redirect_back_or(user)
     else
       flash.now[:danger] = "Incorrect username or password"
       render :new

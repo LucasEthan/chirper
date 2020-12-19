@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: %i[edit update index]
   before_action :correct_user, only: %i[edit update]
+  before_action :only_admin, only: :destroy
 
   def new
     @user = User.new
@@ -40,6 +41,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:success] = "Account #{@user.name} successfully deleted"
+    redirect_to users_path
+  end
+
   private
 
   def user_params
@@ -60,5 +68,9 @@ class UsersController < ApplicationController
       flash[:danger] = "Unauthorized action"
       redirect_to @user
     end
+  end
+
+  def only_admin
+    redirect_to root_path unless current_user.admin?
   end
 end

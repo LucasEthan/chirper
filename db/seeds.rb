@@ -10,7 +10,10 @@ PASSWORD = "HelloWorld10".freeze
 
 User.delete_all
 
-User.create!(name: "Lucas Helloworld", email: "asmrit1010@gmail.com", password: PASSWORD, password_confirmation: PASSWORD)
+User.create!(name: "Lucas Helloworld", email: "asmrit1010@gmail.com", password: PASSWORD,
+  password_confirmation: PASSWORD, admin: true)
+User.create(name: "Admin100 Smith", email: "admin@admin.com", password: PASSWORD,
+  password_confirmation: PASSWORD, admin: true)
 
 100.times do
   name = Faker::Name.unique.name

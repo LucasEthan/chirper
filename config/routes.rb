@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   root "static_pages#home"
 
   resources :users, except: :new
+  resources :account_activations, only: :edit
+
   get "signup", to: "users#new"
   get "login", to: "sessions#new"
   post "login", to: "sessions#create"

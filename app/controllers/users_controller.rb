@@ -11,6 +11,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:success] = "Account #{@user.name} successfully created"
+      flash[:info] = "Please check your email to activate your account"
+      UserMailer.account_activation(@user).deliver_now
       redirect_to login_path
     else
       flash.now[:danger] = "The form contains #{helpers.pluralize(@user.errors.count, 'error')}"

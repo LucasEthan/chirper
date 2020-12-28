@@ -11,12 +11,13 @@ PASSWORD = "HelloWorld10".freeze
 User.delete_all
 
 User.create!(name: "Lucas Helloworld", email: "asmrit1010@gmail.com", password: PASSWORD,
-  password_confirmation: PASSWORD, admin: true)
+  password_confirmation: PASSWORD, admin: true, activated: true, activated_at: Time.current)
 User.create(name: "Admin100 Smith", email: "admin@admin.com", password: PASSWORD,
-  password_confirmation: PASSWORD, admin: true)
+  password_confirmation: PASSWORD, admin: true, activated: true, activated_at: Time.current)
 
 100.times do
   name = Faker::Name.unique.name
   email = Faker::Internet.unique.email
-  User.create!(name: name, email: email, password: PASSWORD, password_confirmation: PASSWORD)
+  User.create!(name: name, email: email, password: PASSWORD, password_confirmation: PASSWORD, activated: true,
+    activated_at: Time.current)
 end

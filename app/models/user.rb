@@ -13,6 +13,8 @@ class User < ApplicationRecord
 
   has_secure_password
 
+  self.per_page = 8
+
   def self.new_token
     SecureRandom.urlsafe_base64
   end

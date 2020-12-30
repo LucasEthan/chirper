@@ -2,6 +2,6 @@
 <h1>All accounts</h1>
 <%= will_paginate %>
 <ul class="users">
-  <%= render @users.paginate(page: params[:page], per_page: 8) %>
+  <%= render @users.paginate(page: params[:page]) %>
 </ul>
 <%= will_paginate %>

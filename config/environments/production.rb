@@ -61,7 +61,7 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "chirper_production"
 
   config.action_mailer.perform_caching = false
-  host = "my_chirper.heroku_apps.com"
+  host = "my-chirper.herokuapp.com"
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: host }

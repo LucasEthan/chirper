@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  attr_accessor :remember_token, :activation_token
+  attr_accessor :remember_token, :activation_token, :reset_token
 
   before_validation :downcase_email, :titlecase_name, :strip_whitespaces
   before_create :create_activation_digest
@@ -49,9 +49,12 @@ class User < ApplicationRecord
   end
 
   def create_reset_digest
+    self.reset_token = User.new_token
+    update_columns(reset_digest: User.digest(reset_token), reset_sent_at: Time.current)
   end
 
   def send_reset_email
+    UserMailer.password_reset(self).deliver_now
   end
 
   private

@@ -12,4 +12,8 @@ module ApplicationHelper
     end
     content.html_safe
   end
+
+  def current_year
+    Time.current.year
+  end
 end

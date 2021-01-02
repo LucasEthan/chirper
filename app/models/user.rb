@@ -48,6 +48,12 @@ class User < ApplicationRecord
     UserMailer.account_activation(self).deliver_now
   end
 
+  def create_reset_digest
+  end
+
+  def send_reset_email
+  end
+
   private
 
   def downcase_email

@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
-  get 'password_resets/new'
-  get 'password_resets/create'
-  get 'password_resets/edit'
-  get 'password_resets/update'
   root "static_pages#home"
 
   resources :users, except: :new
   resources :account_activations, only: :edit, param: :activation_token
+  resources :password_resets, except: %i[destroy show index]
 
   get "signup", to: "users#new"
   get "login", to: "sessions#new"

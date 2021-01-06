@@ -1,5 +1,7 @@
 class PasswordResetsController < ApplicationController
   before_action :retrieve_user, only: %i[edit update]
+  before_action :check_expiration, only: %i[edit update]
+
   def new
   end
 
@@ -33,6 +35,13 @@ class PasswordResetsController < ApplicationController
     unless @user&.activated? && @user.authenticated?(:reset, params[:reset_token])
       flash[:danger] = "An error has occurred, please try again"
       redirect_to login_path
+    end
+  end
+
+  def check_expiration
+    if @user.password_reset_expired?
+      flash[:info] = "The password reset link has expired"
+      redirect_to new_password_reset_path
     end
   end
 end

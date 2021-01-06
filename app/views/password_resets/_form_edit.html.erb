@@ -1,0 +1,9 @@
+<%= form_with(model: user , local: true) do |f| %>
+  <%= render "shared/error_messages" %>
+  <%= f.label :password %>
+  <%= f.password_field :password, class: "form-control" %>
+  <%= f.label :password_confirmation, "Password Confirmation" %>
+  <%= f.password_field :password_confirmation, class: "form-control" %>
+
+  <%= f.submit "Reset Password", class: "btn btn-primary" %>
+<% end %>

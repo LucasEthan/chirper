@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :users, except: :new
   resources :account_activations, only: :edit, param: :activation_token
-  resources :password_resets, except: %i[destroy show index]
+  resources :password_resets, except: %i[destroy show index], param: :reset_token
 
   get "signup", to: "users#new"
   get "login", to: "sessions#new"

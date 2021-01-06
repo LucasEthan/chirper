@@ -1,4 +1,5 @@
 class PasswordResetsController < ApplicationController
+  before_action :retrieve_user, only: %i[edit update]
   def new
   end
 
@@ -13,7 +14,6 @@ class PasswordResetsController < ApplicationController
   end
 
   def edit
-    @user = User.find_by(email: params[:email])
   end
 
   def update
@@ -23,5 +23,16 @@ class PasswordResetsController < ApplicationController
 
   def password_resets_params
     params.require(:password_reset).permit(:email)
+  end
+
+  def retrieve_user
+    @user = User.find_by(email: params[:email])
+  end
+
+  def valid_user
+    unless @user&.activated? && @user.authenticated?(:reset, params[:reset_token])
+      flash[:danger] = "An error has occurred, please try again"
+      redirect_to login_path
+    end
   end
 end

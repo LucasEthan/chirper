@@ -2,3 +2,8 @@ Account activation
 Hi <%= @user.name %>,
 Welcome to Chirper! Please click the link below to activate your account.
 <%= link_to "Activate account", edit_account_activation_url(@user.activation_token, email: @user.email) %>
+<%= link_to "Chirper", root_url %> Copyright &copy; <%= current_year %> by Lucas Ethan Calo. All Rights Reserved.
+<%= link_to "Contact us", contact_us_url %>
+<%= link_to "Help", help_url %>
+<%= link_to "About", about_url %>
+This is an automated email, do not reply.

@@ -19,7 +19,11 @@ class PasswordResetsController < ApplicationController
   end
 
   def update
-    
+    if user_params[:password].blank?
+      @user.errors.add(:password, :blank)
+      flash.now[:danger] = "The form contains #{helpers.pluralize(@user.errors.count, 'error')}"
+      render :edit
+    end
   end
 
   private

@@ -57,6 +57,10 @@ class User < ApplicationRecord
     UserMailer.password_reset(self).deliver_now
   end
 
+  def password_reset_expired?
+    # TODO: implement this later
+  end
+
   private
 
   def downcase_email
@@ -75,9 +79,5 @@ class User < ApplicationRecord
   def create_activation_digest
     self.activation_token = User.new_token
     self.activation_digest = User.digest(activation_token)
-  end
-
-  def password_reset_expired?
-    # TODO: implement this later
   end
 end

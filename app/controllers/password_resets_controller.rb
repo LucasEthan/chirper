@@ -19,12 +19,17 @@ class PasswordResetsController < ApplicationController
   end
 
   def update
+    
   end
 
   private
 
   def password_resets_params
     params.require(:password_reset).permit(:email)
+  end
+
+  def user_params
+    params.require(:user).permit(:password)
   end
 
   def retrieve_user

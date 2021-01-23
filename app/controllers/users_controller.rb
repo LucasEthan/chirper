@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       @user.send_activation_email
       redirect_to login_path
     else
-      flash.now[:danger] = "The form contains #{helpers.pluralize(@user.errors.count, 'error')}"
+      flash.now[:danger] = helpers.form_error_message(@user)
       render :new
     end
   end
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
       flash[:success] = "Account #{@user.name} successfully updated"
       redirect_to @user
     else
-      flash.now[:danger] = "The form contains #{helpers.pluralize(@user.errors.count, 'error')}"
+      flash.now[:danger] = helpers.form_error_message(@user)
       render :edit
     end
   end

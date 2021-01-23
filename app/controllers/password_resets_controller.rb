@@ -21,7 +21,14 @@ class PasswordResetsController < ApplicationController
   def update
     if user_params[:password].blank?
       @user.errors.add(:password, :blank)
-      flash.now[:danger] = "The form contains #{helpers.pluralize(@user.errors.count, 'error')}"
+      flash.now[:danger] = helpers.form_error_message(@user)
+      render :edit
+    elsif @user.update(user_params)
+      flash[:success] = "Password successfully reset"
+      @user.update_attributes(reset_digest: nil, reset_sent_at: nil)
+      redirect_to login_path
+    else
+      flash.now[:danger] = helpers.form_error_message(@user)
       render :edit
     end
   end

@@ -16,4 +16,8 @@ module ApplicationHelper
   def current_year
     Time.current.year
   end
+
+  def form_error_message(model)
+    "The form contains #{pluralize(model.errors.count, 'error')}"
+  end
 end

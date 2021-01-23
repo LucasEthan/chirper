@@ -2,3 +2,4 @@ Account activation
 Hi <%= @user.name %>,
 Welcome to Chirper! Please click the link below to activate your account.
 <%= link_to "Activate account", edit_account_activation_url(@user.activation_token, email: @user.email) %>
+<%= render "footer"%>

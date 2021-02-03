@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users, except: :new
   resources :account_activations, only: :edit, param: :activation_token
   resources :password_resets, except: %i[destroy show index], param: :reset_token
+  resources :chirps, only: %i[create destroy]
 
   get "signup", to: "users#new"
   get "login", to: "sessions#new"

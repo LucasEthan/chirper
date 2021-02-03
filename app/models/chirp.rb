@@ -3,4 +3,6 @@ class Chirp < ApplicationRecord
 
   validates :user_id, presence: true
   validates :content, presence: true, length: {in: 1..140 }
+
+  self.per_page = 5
 end

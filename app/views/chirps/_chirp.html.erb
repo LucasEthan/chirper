@@ -3,7 +3,5 @@
   <span class= "user"><%= link_to chirp.user.name, chirp.user %></span>
   <span class= "contents"><%= chirp.content %></span>
   <span class= "timestamp">Posted: <%= time_ago_in_words(chirp.created_at) %> ago</span>
-  <% if current_user?(chirp.user) %>
-    <%= link_to "Delete", chirp, method: :delete, data: { confirm: "Are you sure you want to delete this chirp?" } %>
-  <% end %>
+  <%= link_to_if(current_user?(chirp.user), "Delete", chirp, method: :delete, data: { confirm: "Are you sure you want to delete this chirp?" }) {} %>
 </li>

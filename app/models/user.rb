@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_many :chirps, dependent: :destroy
-  
+
   attr_accessor :remember_token, :activation_token, :reset_token
 
   before_validation :downcase_email, :titlecase_name, :strip_whitespaces

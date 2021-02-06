@@ -4,6 +4,7 @@ class ChirpsController < ApplicationController
 
   def create
     @chirp = current_user.chirps.build(chirps_params)
+    @chirp.image.attach(params[:chirp][:image])
     if @chirp.save
       flash[:success] = "Chirp successfully created"
       redirect_to root_path
@@ -23,7 +24,7 @@ class ChirpsController < ApplicationController
   private
 
   def chirps_params
-    params.require(:chirp).permit(:content)
+    params.require(:chirp).permit(:content, :image)
   end
 
   def correct_user

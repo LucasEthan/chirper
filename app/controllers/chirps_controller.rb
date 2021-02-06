@@ -5,10 +5,10 @@ class ChirpsController < ApplicationController
     @chirp = current_user.chirps.build(chirps_params)
     if @chirp.save
       flash[:success] = "Chirp successfully created"
-      redirect_to current_user
+      redirect_to root_path
     else
-      flash.now[:danger] = form_error_message(chirp)
-      render: root_path
+      flash.now[:danger] = helpers.form_error_message(@chirp)
+      render "static_pages/home"
     end
   end
 

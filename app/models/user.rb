@@ -63,6 +63,10 @@ class User < ApplicationRecord
     reset_sent_at < 15.minutes.ago
   end
 
+  def feed
+    chirps
+  end
+
   private
 
   def downcase_email

@@ -8,6 +8,7 @@ class ChirpsController < ApplicationController
       redirect_to root_path
     else
       flash.now[:danger] = helpers.form_error_message(@chirp)
+      @feed_items = current_user.feed.order_by_date_desc.paginate(page: params[:page])
       render "static_pages/home"
     end
   end

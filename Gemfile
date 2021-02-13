@@ -10,6 +10,9 @@ gem "bootstrap-sass", "3.4.1"
 gem "capybara"
 gem "will_paginate"
 gem "bootstrap-will_paginate"
+gem "active_storage_validations"
+gem "mini_magick"
+gem "image_processing"
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -56,6 +59,10 @@ group :development do
   gem "pry-rails"
   gem "pry-byebug"
   gem "letter_opener"
+end
+
+group :production do
+  gem "aws-sdk-s3", require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

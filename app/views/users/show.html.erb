@@ -8,6 +8,15 @@
      </h1>
     </section>
   </aside>
+  <div class="col-md-8">
+    <% if @user.chirps.any? %>
+      <h3><%= pluralize(@user.chirps.count, "chirp") %></h3>
+      <ol class= "chirps">
+        <%= render @chirps %>
+      </ol>
+      <%= will_paginate @chirps %>
+    <% end %>
+  </div>
 </div>
 
 <p><strong>Name:</strong> <%= @user.name %></p>

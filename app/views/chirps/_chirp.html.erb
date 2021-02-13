@@ -1,0 +1,10 @@
+<li id= "chirp-<%= chirp.id %>">
+  <%= link_to gravatar_for(chirp.user, size: 50), chirp.user %>
+  <span class="user"><%= link_to chirp.user.name, chirp.user %></span>
+  <span class="content">
+    <%= chirp.content %>
+    <%= show_image(chirp) %>
+  </span>
+  <span class="timestamp">Posted: <%= time_ago_in_words(chirp.created_at) %> ago</span>
+  <%= link_to_if(current_user?(chirp.user), "Delete", chirp, method: :delete, data: { confirm: "Are you sure you want to delete this chirp?" }) {} %>
+</li>

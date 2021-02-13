@@ -22,6 +22,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @chirps = @user.chirps.all.paginate(page: params[:page])
   end
 
   def index
@@ -54,14 +55,6 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
-  end
-
-  def logged_in_user
-    unless logged_in?
-      store_location
-      flash[:info] = "You must be logged in"
-      redirect_to login_path
-    end
   end
 
   def correct_user

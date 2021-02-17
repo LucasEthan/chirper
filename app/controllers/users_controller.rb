@@ -51,6 +51,12 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
+  def following
+  end
+
+  def followers
+  end
+
   private
 
   def user_params

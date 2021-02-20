@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users, except: :new do
     get :following, :followers, on: :member
   end
+  resources :relationships, only: %i[create destroy]
 
   resources :account_activations, only: :edit, param: :activation_token
   resources :password_resets, except: %i[destroy show index], param: :reset_token

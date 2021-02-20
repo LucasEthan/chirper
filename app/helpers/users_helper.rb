@@ -6,11 +6,11 @@ module UsersHelper
     image_tag(gravatar_url, alt: user.name, class: "gravatar")
   end
 
-  def following_count
+  def following_count(user)
     user.following.count
   end
 
-  def follower_count
+  def follower_count(user)
     user.followers.count
   end
 end

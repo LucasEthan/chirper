@@ -5,4 +5,12 @@ module UsersHelper
     gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
     image_tag(gravatar_url, alt: user.name, class: "gravatar")
   end
+
+  def following_count
+    user.following.count
+  end
+
+  def follower_count
+    user.followers.count
+  end
 end

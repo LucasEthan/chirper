@@ -2,14 +2,15 @@
 <div class="stats">
   <%= link_to following_user_path(user) do %>
     <strong id="following" class="stat">
-      <%= user.following_count %>
+      <%= following_count(user) %>
     </strong>
     following
   <% end %>
   <%= link_to followers_user_path(user) do %>
+    <% num_followers = follower_count(user) %>
     <strong id="followers" class="stat">
-      <%= user.follower_count %>
+      <%= num_followers %>
     </strong>
-    followers
+    <%= "follower".pluralize(num_followers) %>
   <% end %>
 </div>

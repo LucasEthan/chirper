@@ -12,7 +12,7 @@
     </span>
     </section>
     <section class="stats">
-      <%= render "shared/stats" %>
+      <%= render "shared/stats", user: @user %>
       <div class="user_avatars">
         <%= render partial: "user_avatar", collection: @users, as: "user" %>
       </div>

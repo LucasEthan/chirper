@@ -68,8 +68,8 @@ class User < ApplicationRecord
   end
 
   def feed
-    following_ids = "SELECT followed_id FROM relationships WHERE following_id = :user_id"
-    Chirp.where("user_id IN (#{following_ids}) OR user_id = :user_id", user_id: id).order_by_date_desc
+    part_of_feed = "relationships.follower_id = :id or chirps.user_id = :id"
+    Chirp.joins(user: :followers).where(part_of_feed, { id: id })
   end
 
   def follow(other_user)

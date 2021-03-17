@@ -68,11 +68,11 @@ class User < ApplicationRecord
   end
 
   def feed
-    chirps
+    Chirp.where("user_id IN (:following_ids) OR user_id = :id", following_ids: following.ids, id: id).order_by_date_desc
   end
 
   def follow(other_user)
-    following << other_user 
+    following << other_user
   end
 
   def unfollow(other_user)
